@@ -7,7 +7,10 @@
 (evil-mode 1)
 
 ; esc map
-(define-key evil-insert-state-map (kbd "C-j") 'evil-normal-state)
+(add-to-list 'load-path "~/.emacs.d/key-chord")
+(require 'key-chord)
+(key-chord-mode 1)
+(key-chord-define-global "jk"  'evil-normal-state)
 
 ; php mode
 (add-to-list 'load-path "~/.emacs.d/php-mode")
