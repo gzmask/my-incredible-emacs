@@ -9,3 +9,6 @@
 ; php mode
 (add-to-list 'load-path "~/.emacs.d/php-mode")
 (require 'php-mode)
+
+; scroll
+(setq evil-want-C-u-scroll t)
