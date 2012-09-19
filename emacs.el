@@ -1,3 +1,6 @@
+; scroll
+(setq evil-want-C-u-scroll t)
+
 ; evil plugin
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
@@ -10,5 +13,3 @@
 (add-to-list 'load-path "~/.emacs.d/php-mode")
 (require 'php-mode)
 
-; scroll
-(setq evil-want-C-u-scroll t)
