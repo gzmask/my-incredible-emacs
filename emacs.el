@@ -13,6 +13,10 @@
 (key-chord-define-global "lk" 'evil-scroll-up)
 (key-chord-define-global "lj" 'evil-scroll-down)
 
+; indent
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 ; php mode
 (add-to-list 'load-path "~/.emacs.d/php-mode")
 (require 'php-mode)
