@@ -13,7 +13,9 @@
 (require 'php-mode)
 
 ; esc map
-(key-chord-define-global "jk" 'evil-normal-state)
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+(key-chord-define evil-normal-state-map "jk" (kbd "<escape>"))
+(key-chord-define evil-visual-state-map "jk" 'evil-normal-state)
 
 ; scroll
 (key-chord-define-global "lk" 'evil-scroll-up)
