@@ -8,6 +8,10 @@
 (require 'key-chord)
 (key-chord-mode 1)
 
+; php plugin
+(add-to-list 'load-path "~/.emacs.d/php-mode")
+(require 'php-mode)
+
 ; esc map
 (key-chord-define-global "jk" 'evil-normal-state)
 
@@ -18,8 +22,3 @@
 ; indent
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-
-; php mode
-(add-to-list 'load-path "~/.emacs.d/php-mode")
-(require 'php-mode)
-
