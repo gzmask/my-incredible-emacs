@@ -1,3 +1,6 @@
+; theme
+(load-theme 'manoj-dark t)
+
 ; evil plugin
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
