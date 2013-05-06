@@ -46,6 +46,9 @@
 (ad-activate 'linum-update)
 (global-linum-mode t)
 
+; no backup file
+(setq make-backup-files nil)
+
 ; evil key-binding
 (eval-after-load "evil"
     '(progn
