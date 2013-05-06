@@ -31,8 +31,8 @@
 (key-chord-define evil-visual-state-map ",," 'evil-normal-state)
 
 ; scroll
-;(key-chord-define-global "C-d" 'evil-scroll-up)
-;(key-chord-define-global "C-u" 'evil-scroll-down)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
 
 ; indent
 (setq-default indent-tabs-mode nil)
