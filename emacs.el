@@ -13,6 +13,9 @@
 (require 'evil)
 (evil-mode 1)
 
+; command map
+(define-key evil-normal-state-map ";" 'evil-ex)
+
 ; chord plugin
 (add-to-list 'load-path "~/.emacs.d/key-chord")
 (require 'key-chord)
@@ -23,13 +26,13 @@
 (require 'php-mode)
 
 ; esc map
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-(key-chord-define evil-normal-state-map "jk" (kbd "<escape>"))
-(key-chord-define evil-visual-state-map "jk" 'evil-normal-state)
+(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
+(key-chord-define evil-normal-state-map ",," (kbd "<escape>"))
+(key-chord-define evil-visual-state-map ",," 'evil-normal-state)
 
 ; scroll
-(key-chord-define-global "lk" 'evil-scroll-up)
-(key-chord-define-global "lj" 'evil-scroll-down)
+;(key-chord-define-global "C-d" 'evil-scroll-up)
+;(key-chord-define-global "C-u" 'evil-scroll-down)
 
 ; indent
 (setq-default indent-tabs-mode nil)
