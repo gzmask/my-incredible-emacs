@@ -1,5 +1,6 @@
 ; theme
 (load-theme 'manoj-dark t)
+(setq inhibit-splash-screen t)
 
 ; marmalade melpa
 (require 'package)
@@ -48,6 +49,17 @@
 
 ; no backup file
 (setq make-backup-files nil)
+
+; w3m 
+(add-to-list 'load-path "~/.emacs.d/w3m")
+(when (executable-find "w3m")
+    (setq w3m-command (executable-find "w3m"))
+    (require 'w3m)
+    (require 'w3m-load)
+    (setq w3m-use-cookies t)
+    (key-chord-define w3m-mode-map ",," 'evil-normal-state)
+    (define-key w3m-mode-map (kbd "ESC") 'evil-normal-state))
+
 
 ; evil key-binding
 (eval-after-load "evil"
