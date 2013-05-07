@@ -70,6 +70,7 @@
         (key-chord-define evil-insert-state-map ",," 'evil-normal-state)
         (key-chord-define evil-normal-state-map ",," (kbd "<escape>"))
         (key-chord-define evil-visual-state-map ",," 'evil-normal-state)
+        (key-chord-define evil-emacs-state-map ",," 'evil-normal-state)
         ; auto complete
         (define-key ac-completing-map (kbd "C-n") 'ac-next)
         (define-key ac-completing-map (kbd "C-p") 'ac-previous)
