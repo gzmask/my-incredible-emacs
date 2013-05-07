@@ -57,6 +57,13 @@
     (require 'w3m)
     (require 'w3m-load)
     (setq w3m-use-cookies t)
+    ; change homepage
+    (setq w3m-home-page "google.com")
+    ; tab navigation
+    (define-key w3m-mode-map (read-kbd-macro "n") 'w3m-next-buffer)
+    ; tab create/remove
+    (define-key w3m-mode-map (read-kbd-macro "s-<return>") 'w3m-view-this-url-new-session)
+    (define-key w3m-mode-map (read-kbd-macro "C-w") 'w3m-delete-buffer)
     (key-chord-define w3m-mode-map ",," 'evil-normal-state)
     (define-key w3m-mode-map (kbd "ESC") 'evil-normal-state))
 
