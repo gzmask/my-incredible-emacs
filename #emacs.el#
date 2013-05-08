@@ -35,9 +35,6 @@
 ; clojure mode
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
-; nrepl
-(key-chord-define evil-normal-state-map "ee" 'nrepl-eval-expression-at-point)
-
 ; line number
 (defvar my-linum-current-line-number 0)
 (setq linum-format 'my-linum-relative-line-numbers)

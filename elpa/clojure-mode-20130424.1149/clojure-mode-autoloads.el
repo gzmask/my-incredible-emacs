@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads (clojure-enable-slime-on-existing-buffers clojure-jack-in
-;;;;;;  clojure-mode) "clojure-mode" "clojure-mode.el" (20571 63155))
+;;;### (autoloads (clojure-mode) "clojure-mode" "clojure-mode.el"
+;;;;;;  (20874 43099 0 0))
 ;;; Generated autoloads from clojure-mode.el
 
 (autoload 'clojure-mode "clojure-mode" "\
@@ -21,23 +21,26 @@ if that value is non-nil.
 
 \(fn)" t nil)
 
-(autoload 'clojure-jack-in "clojure-mode" "\
+(put 'clojure-test-ns-segment-position 'safe-local-variable 'integerp)
 
+(put 'clojure-mode-load-command 'safe-local-variable 'stringp)
 
-\(fn)" t nil)
+(add-to-list 'auto-mode-alist '("\\.clj\\'" . clojure-mode))
 
-(autoload 'clojure-enable-slime-on-existing-buffers "clojure-mode" "\
+(add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
 
+(add-to-list 'auto-mode-alist '("\\.dtm\\'" . clojure-mode))
 
-\(fn)" t nil)
+(add-to-list 'auto-mode-alist '("\\.edn\\'" . clojure-mode))
 
-(add-hook 'slime-connected-hook 'clojure-enable-slime-on-existing-buffers)
+(add-to-list 'interpreter-mode-alist '("jark" . clojure-mode))
 
-(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(add-to-list 'interpreter-mode-alist '("cake" . clojure-mode))
 
 ;;;***
 
-;;;### (autoloads nil nil ("clojure-mode-pkg.el") (20571 63156 51798))
+;;;### (autoloads nil nil ("clojure-mode-pkg.el") (20874 43099 349145
+;;;;;;  0))
 
 ;;;***
 
