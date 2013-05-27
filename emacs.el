@@ -32,6 +32,9 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/autocomplete/ac-dict")
 (ac-config-default)
 
+; easy buffer switch with c-x b
+(iswitchb-mode t)
+
 ; clojure mode
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
