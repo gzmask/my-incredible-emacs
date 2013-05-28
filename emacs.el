@@ -79,7 +79,7 @@
     (require 'browse-url)
     (setq w3m-use-cookies t)
     ; change homepage
-    (setq w3m-home-page "google.com")
+    (setq w3m-home-page "hckrnews.com")
     ; tab create
     (define-key w3m-mode-map (read-kbd-macro "s-<return>") 'w3m-view-this-url-new-session)
     ; exit to vim mode
