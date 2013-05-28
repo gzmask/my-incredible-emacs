@@ -33,15 +33,19 @@
 (ac-config-default)
 
 ; easy buffer switch with c-x b
-(setq ido-enable-flex-matching t)
 (setq ido-everywhere t)          
+(setq ido-enable-flex-matching t)
+(setq ido-use-filename-at-point nil)
+(setq ido-auto-merge-work-directories-length 0)
+(setq ido-use-virtual-buffers t)
 (ido-mode 1)                     
 
 ; clojure mode
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
 ; nrepl
-(key-chord-define evil-normal-state-map ",e" 'nrepl-eval-expression-at-point)
+(key-chord-define evil-normal-state-map "ee" 'nrepl-eval-expression-at-point)
+(key-chord-define evil-normal-state-map "ef" 'nrepl-eval-buffer)
 
 ; line number
 (defvar my-linum-current-line-number 0)
