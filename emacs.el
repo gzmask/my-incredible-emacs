@@ -34,12 +34,22 @@
 
 ; easy buffer switch with c-x b
 (iswitchb-mode t)
+(defun iswitchb-local-keys ()
+    (mapc (lambda (K) 
+    (let* ((key (car K)) (fun (cdr K)))
+        (define-key iswitchb-mode-map (edmacro-parse-keys key) fun)))
+        '(("<right>" . iswitchb-next-match)
+          ("<left>" . iswitchb-prev-match)
+          ("<up>"    . ignore             )
+          ("<down>"  . ignore             ))))
+(add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
+
 
 ; clojure mode
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
 ; nrepl
-(key-chord-define evil-normal-state-map "ee" 'nrepl-eval-expression-at-point)
+(key-chord-define evil-normal-state-map ",e" 'nrepl-eval-expression-at-point)
 
 ; line number
 (defvar my-linum-current-line-number 0)
@@ -65,13 +75,33 @@
     (setq w3m-command (executable-find "w3m"))
     (require 'w3m)
     (require 'w3m-load)
+    (require 'w3m-search)
+    (require 'browse-url)
     (setq w3m-use-cookies t)
     ; change homepage
     (setq w3m-home-page "google.com")
     ; tab create
     (define-key w3m-mode-map (read-kbd-macro "s-<return>") 'w3m-view-this-url-new-session)
+    ; exit to vim mode
     (key-chord-define w3m-mode-map ",," 'evil-normal-state)
-    (define-key w3m-mode-map (kbd "ESC") 'evil-normal-state))
+    (define-key w3m-mode-map (kbd "ESC") 'evil-normal-state)
+    ; goto url
+    (defun gzmask/w3m-browse-url (url prefix)
+        "Ask emacs-w3m to browse URL."
+        (interactive
+            (progn
+                (browse-url-interactive-arg "URL: ")))
+            (when (stringp url)
+                (w3m-goto-url (w3m-canonicalize-url url))))
+    (defun gzmask/w3m-browse-url-new-session (url prefix)
+        "Ask emacs-w3m to browse URL."
+        (interactive
+            (progn
+                (browse-url-interactive-arg "URL: ")))
+            (when (stringp url)
+                (w3m-goto-url-new-session (w3m-canonicalize-url url))))
+    (define-key w3m-mode-map (kbd "g") 'gzmask/w3m-browse-url)
+    (define-key w3m-mode-map (kbd "G") 'gzmask/w3m-browse-url-new-session))
 
 
 ; evil key-binding
@@ -89,9 +119,9 @@
         (key-chord-define evil-motion-state-map ",," (kbd "<escape>"))
         (key-chord-define evil-emacs-state-map ",," (kbd "<escape>"))
         ; auto complete
-        (define-key ac-completing-map (kbd "C-n") 'ac-next)
-        (define-key ac-completing-map (kbd "C-p") 'ac-previous)
-        (define-key ac-completing-map (kbd "C-g") 'ac-stop)
+        ;(define-key ac-completing-map (kbd "C-n") 'ac-next)
+        ;(define-key ac-completing-map (kbd "C-p") 'ac-previous)
+        ;(define-key ac-completing-map (kbd "C-g") 'ac-stop)
         (define-key ac-completing-map (kbd "ESC") 'evil-normal-state)
         (key-chord-define ac-completing-map ",," 'evil-normal-state)
         (evil-make-intercept-map ac-completing-map)
