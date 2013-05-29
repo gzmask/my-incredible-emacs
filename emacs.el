@@ -8,6 +8,9 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+; mac cmd to ctl
+(setq mac-command-modifier 'control)
+
 ; evil plugin
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
@@ -75,7 +78,7 @@
     (require 'browse-url)
     (setq w3m-use-cookies t)
     ; change homepage
-    (setq w3m-home-page "hckrnews.com")
+    (setq w3m-home-page "about:blank")
     ; tab create
     (define-key w3m-mode-map (read-kbd-macro "s-<return>") 'w3m-view-this-url-new-session)
     ; exit to vim mode
@@ -104,22 +107,9 @@
 (eval-after-load "evil"
     '(progn
         ; command map
-        (key-chord-define evil-insert-state-map ";;" 'evil-ex)
-        (key-chord-define evil-normal-state-map ";;" 'evil-ex)
-        (key-chord-define evil-visual-state-map ";;" 'evil-ex)
         (define-key evil-motion-state-map ";" 'evil-ex)
-        ; esc map
-        (key-chord-define evil-insert-state-map ",," (kbd "<escape>"))
-        (key-chord-define evil-normal-state-map ",," (kbd "<escape>"))
-        (key-chord-define evil-visual-state-map ",," (kbd "<escape>"))
-        (key-chord-define evil-motion-state-map ",," (kbd "<escape>"))
-        (key-chord-define evil-emacs-state-map ",," (kbd "<escape>"))
         ; auto complete
-        ;(define-key ac-completing-map (kbd "C-n") 'ac-next)
-        ;(define-key ac-completing-map (kbd "C-p") 'ac-previous)
-        ;(define-key ac-completing-map (kbd "C-g") 'ac-stop)
         (define-key ac-completing-map (kbd "ESC") 'evil-normal-state)
-        (key-chord-define ac-completing-map ",," 'evil-normal-state)
         (evil-make-intercept-map ac-completing-map)
         ; scroll
         (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
