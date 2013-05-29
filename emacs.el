@@ -47,8 +47,8 @@
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
 ; nrepl
-(key-chord-define evil-normal-state-map "ee" 'nrepl-eval-expression-at-point)
-(key-chord-define evil-normal-state-map "ef" 'nrepl-eval-buffer)
+(key-chord-define evil-normal-state-map ",e" 'nrepl-eval-expression-at-point)
+(key-chord-define evil-normal-state-map ",f" 'nrepl-eval-buffer)
 
 ; line number
 (defvar my-linum-current-line-number 0)
@@ -114,5 +114,5 @@
         (define-key ac-completing-map (kbd "ESC") 'evil-normal-state)
         (evil-make-intercept-map ac-completing-map)
         ; scroll
-        (key-chord-define evil-normal-state-map ",," 'evil-scroll-down)
-        (key-chord-define evil-normal-state-map ",m" 'evil-scroll-up)))
+        (key-chord-define evil-normal-state-map ",," (kbd "12 C-e"))
+        (key-chord-define evil-normal-state-map ",m" (kbd "12 C-y"))))
