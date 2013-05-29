@@ -68,6 +68,9 @@
 ; no backup file
 (setq make-backup-files nil)
 
+;disable auto save
+(setq auto-save-default nil)
+
 ; w3m 
 (add-to-list 'load-path "~/.emacs.d/w3m")
 (when (executable-find "w3m")
