@@ -85,7 +85,6 @@
     ; tab create
     (define-key w3m-mode-map (read-kbd-macro "s-<return>") 'w3m-view-this-url-new-session)
     ; exit to vim mode
-    (key-chord-define w3m-mode-map ",," 'evil-normal-state)
     (define-key w3m-mode-map (kbd "ESC") 'evil-normal-state)
     ; goto url
     (defun gzmask/w3m-browse-url (url prefix)
@@ -115,6 +114,5 @@
         (define-key ac-completing-map (kbd "ESC") 'evil-normal-state)
         (evil-make-intercept-map ac-completing-map)
         ; scroll
-        (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-        (define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
-        ))
+        (key-chord-define evil-normal-state-map ",," 'evil-scroll-down)
+        (key-chord-define evil-normal-state-map ",m" 'evil-scroll-up)))
