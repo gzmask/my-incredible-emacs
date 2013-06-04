@@ -1,6 +1,8 @@
 ; theme
 (load-theme 'manoj-dark t)
+(set-face-attribute 'default nil :height 150)
 (setq inhibit-splash-screen t)
+(set-frame-parameter (selected-frame) 'alpha '(75 80))
 
 ; marmalade melpa
 (require 'package)
