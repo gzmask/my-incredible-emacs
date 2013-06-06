@@ -117,6 +117,6 @@
         (evil-make-intercept-map ac-completing-map)
         ; scroll
         (key-chord-define evil-normal-state-map ",j" 'evil-scroll-down)
-        (key-chord-define evil-normal-state-map ",k" 'evil-scroll-up)))
+        (key-chord-define evil-normal-state-map ",m" 'evil-scroll-up)))
         ;(key-chord-define evil-normal-state-map ",," (kbd "12 C-e"))
         ;(key-chord-define evil-normal-state-map ",m" (kbd "12 C-y"))))
