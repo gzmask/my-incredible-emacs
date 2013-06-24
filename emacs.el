@@ -13,6 +13,9 @@
 ; mac cmd to ctl
 (setq mac-command-modifier 'control)
 
+; parenthesis matching
+(show-paren-mode 1)
+
 ; evil plugin
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
